@@ -3,7 +3,7 @@ using System.Globalization;
 
 
 
-class Program(string[] args)
+class Program
 {
     static string userName = "";
     //int intNumber = 0;
@@ -52,8 +52,8 @@ class Program(string[] args)
     }
     static void DisplayResult()
     {
-        Console.WriteLine(userName);
-       Console.WriteLine($"{userName}, the square of you number is {squareNumber}");
+    
+       Console.WriteLine($"{userName}, the square of your number is {squareNumber}");
     }
 
 
