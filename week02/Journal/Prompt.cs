@@ -19,30 +19,31 @@ public class Prompt
 
         // 
         "If I could design a new video game, what would it be about?",
-        "Imagine I woke up with a superpower — what would it be, and what would I do first?",
-        "I discovered a secret door in my house or school — where does it lead?",
-        "If people could live on another planet, what would life be like?",
+        "Imagine I woke up with a superpower — what would I do first?",
 
         //
         "If I could switch lives with a cartoon character for one day, who would it be?",
         "Create a new ice cream flavor — what would it taste like?",
         "What would I do if I found a treasure chest in my backyard?",
         "Imagine a day when everything goes opposite — what would happen?",
-        "If I could talk to a famous person from history, who would it be, and what would I ask?"
+        "If I could talk to a famous person from history, who would it be?"
     };
 
-    int index;
-    Random random = new Random();
-    string userAnswer = "";
+    int _index;
+    Random _random = new Random();
+    string _userAnswer = "";
+    string _randomPrompt;
+    string _currentDate = "";
 
-    public void Get_RandomPrompt()
+    public string Get_RandomPrompt()
     {
-        index = random.Next(prompts.Count());
+        return _randomPrompt;
     }
     public void Display_RandomPrompt()
     {
-
-        Console.WriteLine(prompts[index]);
+        _index = _random.Next(prompts.Count());
+        _randomPrompt = prompts[_index];
+        Console.WriteLine(_randomPrompt);
     }
     public void Display_InputPrompt()
     {
@@ -50,8 +51,23 @@ public class Prompt
     }
     public void Enter_UserAnswer()
     {
-        userAnswer = Console.ReadLine();
+        _userAnswer = Console.ReadLine();
     }
+
+    public string AssignToEntry()
+    {
+        string temp = "";
+
+        temp = $"Date: {_currentDate} - Prompt: {_randomPrompt}\n{_userAnswer}";
+        
+        return temp;
+
+    }
+    public void Get_CurrentDate()
+    {
+        _currentDate = DateOnly.FromDateTime(DateTime.Now).ToString();
+    }
+    
 
         
 
